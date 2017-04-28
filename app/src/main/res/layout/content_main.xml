@@ -34,24 +34,123 @@
             android:layout_height="wrap_content"
             >
             <Button
-                android:id="@+id/button_ex1"
+                android:id="@+id/main_btn1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:text="Example 1">
+                android:text="@string/main_btn1">
             <!--tools:layout_editor_absoluteY="64dp"-->
             <!--tools:layout_editor_absoluteX="58dp" -->
             </Button>
 
             <Button
-                android:id="@+id/button_ex2"
+                android:id="@+id/main_btn2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:text="Example 2">
+                android:text="@string/main_btn2">
             <!--tools:layout_editor_absoluteY="64dp"-->
             <!--tools:layout_editor_absoluteX="238dp" -->
             </Button>
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:layout_marginTop="20dp"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content">
+
+            <Button
+                android:id="@+id/sub_btn_1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="@string/sub_btn_1">
+            </Button>
+
+            <Button
+                android:id="@+id/sub_btn_2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="@string/sub_btn_2">
+            </Button>
+
+            <Button
+                android:id="@+id/sub_btn_3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="@string/sub_btn_3">
+            </Button>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:layout_marginTop="10dp"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content">
+
+            <Button
+                android:id="@+id/sub_btn_4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="@string/sub_btn_4">
+            </Button>
+
+            <Button
+                android:id="@+id/sub_btn_5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="@string/sub_btn_5">
+            </Button>
+
+            <Button
+                android:id="@+id/sub_btn_6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="@string/sub_btn_6">
+            </Button>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:layout_marginTop="10dp"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content">
+
+            <Button
+                android:id="@+id/sub_btn_7"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="@string/sub_btn_7">
+            </Button>
+
+            <Button
+                android:id="@+id/sub_btn_8"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="@string/sub_btn_8">
+            </Button>
+
+            <Button
+                android:id="@+id/sub_btn_9"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="@string/sub_btn_9">
+            </Button>
+
         </LinearLayout>
     </LinearLayout>
 

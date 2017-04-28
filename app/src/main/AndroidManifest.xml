@@ -15,10 +15,23 @@
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <activity android:name=".project.group1.MainActivity"></activity>
+        <activity android:name=".project.group2.MainActivity"></activity>
+
+        <activity android:name=".practice.jkm.MainActivity"></activity>
+        <activity android:name=".practice.jmh.MainActivity"></activity>
+        <activity android:name=".practice.kte.MainActivity"></activity>
+        <activity android:name=".practice.lws.MainActivity"></activity>
+        <activity android:name=".practice.ocs.MainActivity"></activity>
+        <activity android:name=".practice.shs.MainActivity"></activity>
+        <activity android:name=".practice.wjj.MainActivity"></activity>
+        <activity android:name=".practice.yky.MainActivity"></activity>
+        <activity android:name=".practice.ysj.MainActivity"></activity>
+
     </application>
 
 </manifest>
