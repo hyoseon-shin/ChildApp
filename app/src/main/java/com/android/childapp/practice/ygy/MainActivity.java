@@ -10,7 +10,7 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+        super.onCreate(savedInstanceStaygygote);
         setContentView(R.layout.activity_practice_ygy_main);
 
         Log.d("","  ");
