@@ -1,4 +1,17 @@
 <resources>
     <string name="app_name">ChildApp</string>
     <string name="action_settings">Settings</string>
+
+    <string name="main_btn1">1조</string>
+    <string name="main_btn2">2조</string>
+    <string name="sub_btn_1">김태은</string>
+    <string name="sub_btn_2">신효선</string>
+    <string name="sub_btn_3">오창섭</string>
+    <string name="sub_btn_4">위정제</string>
+    <string name="sub_btn_5">유기연</string>
+    <string name="sub_btn_6">윤성준</string>
+    <string name="sub_btn_7">이원석</string>
+    <string name="sub_btn_8">전명희</string>
+    <string name="sub_btn_9">정경미</string>
+
 </resources>
