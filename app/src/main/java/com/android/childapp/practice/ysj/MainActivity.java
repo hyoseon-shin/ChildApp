@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Toast;
 
 import com.android.childapp.R;
@@ -15,6 +16,7 @@ public class MainActivity extends AppCompatActivity {
 
     private SQLiteDatabase db = null;
 
+    private EditText mInputBox;
     private Button mInsertBtn;
     private Button mSelectBtn;
     private Button mDeleteAllBtn;
@@ -24,6 +26,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_practice_ysj_main);
 
+        mInputBox = (EditText) findViewById(R.id.ysj_edittext);
         mInsertBtn = (Button) findViewById(R.id.ysj_insert);
         mSelectBtn = (Button) findViewById(R.id.ysj_select);
         mDeleteAllBtn = (Button) findViewById(R.id.ysj_deleteAll);
@@ -31,8 +34,14 @@ public class MainActivity extends AppCompatActivity {
         mInsertBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                createData();
-                Toast.makeText(MainActivity.this, "성공", Toast.LENGTH_SHORT).show();
+                String inputData = mInputBox.getText().toString();
+                if(inputData != null && inputData.length() > 0) {
+                    createData(inputData);
+                    Toast.makeText(MainActivity.this, inputData + " 값을 저장하였습니다.", Toast.LENGTH_SHORT).show();
+                }
+                else {
+                    Toast.makeText(MainActivity.this, "값을 입력해주세요.", Toast.LENGTH_SHORT).show();
+                }
             }
         });
 
@@ -54,9 +63,9 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    private void createData() {
+    private void createData(String inputData) {
         db = DatabaseOpenHelper.getInstance(this).getWritableDatabase();
-        String sql = "insert into TB_TEMP (SEQNO, TEMP1) values ('seq1', '1111')";
+        String sql = "insert into TB_TEMP (SEQNO, TEMP1) values ('seq1', '" + inputData + "')";
         db.execSQL(sql);
     }
 
