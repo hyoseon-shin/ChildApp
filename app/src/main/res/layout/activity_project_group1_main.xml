@@ -3,4 +3,200 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="3">
+
+        <TextView
+            android:id="@+id/project_group1_num1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="60dp"
+            android:textSize="30sp"
+            android:textColor="#FF0000"
+            android:text="1">
+        </TextView>
+
+        <TextView
+            android:id="@+id/project_group1_num2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="230dp"
+            android:layout_marginTop="220dp"
+            android:textSize="30sp"
+            android:textColor="#FF0000"
+            android:text="2">
+        </TextView>
+
+        <TextView
+            android:id="@+id/project_group1_num3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="230dp"
+            android:layout_marginTop="360dp"
+            android:textSize="30sp"
+            android:textColor="#FF0000"
+            android:text="3">
+        </TextView>
+
+        <TextView
+            android:id="@+id/project_group1_num4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="210dp"
+            android:layout_marginTop="70dp"
+            android:textSize="30sp"
+            android:textColor="#FF0000"
+            android:text="4">
+        </TextView>
+
+        <TextView
+            android:id="@+id/project_group1_num5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="50dp"
+            android:layout_marginTop="310dp"
+            android:textSize="30sp"
+            android:textColor="#FF0000"
+            android:text="5">
+        </TextView>
+
+        <TextView
+            android:id="@+id/project_group1_num6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="150dp"
+            android:layout_marginTop="130dp"
+            android:textSize="30sp"
+            android:textColor="#FF0000"
+            android:text="6">
+        </TextView>
+
+        <TextView
+            android:id="@+id/project_group1_num7"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="100dp"
+            android:layout_marginTop="200dp"
+            android:textSize="30sp"
+            android:textColor="#FF0000"
+            android:text="7">
+        </TextView>
+
+        <TextView
+            android:id="@+id/project_group1_num8"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="170dp"
+            android:layout_marginTop="260dp"
+            android:textSize="30sp"
+            android:textColor="#FF0000"
+            android:text="8">
+        </TextView>
+
+        <TextView
+            android:id="@+id/project_group1_num9"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="290dp"
+            android:layout_marginTop="260dp"
+            android:textSize="30sp"
+            android:textColor="#FF0000"
+            android:text="9">
+        </TextView>
+
+        <TextView
+            android:id="@+id/project_group1_num10"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="120dp"
+            android:layout_marginTop="20dp"
+            android:textSize="30sp"
+            android:textColor="#FF0000"
+            android:text="10">
+        </TextView>
+
+    </FrameLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
+            </View>
+
+            <Button
+                android:layout_width="100dp"
+                android:layout_height="50dp"
+                android:text="Button1"
+                />
+            <View
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
+            </View>
+
+            <Button
+                android:layout_width="100dp"
+                android:layout_height="50dp"
+                android:text="Button2"
+                />
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
+            </View>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+            <View
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
+            </View>
+
+            <Button
+                android:layout_width="100dp"
+                android:layout_height="50dp"
+                android:text="Button3"
+                />
+            <View
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
+            </View>
+
+            <Button
+                android:layout_width="100dp"
+                android:layout_height="50dp"
+                android:text="Button4"
+                />
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
+            </View>
+
+        </LinearLayout>
+
+    </LinearLayout>
 </LinearLayout>

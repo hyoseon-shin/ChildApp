@@ -37,10 +37,14 @@ public class DatabaseOpenHelper extends SQLiteOpenHelper {
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         Log.d("ysj", "onUpgrade oldVersion: " + oldVersion + ", newVersion: " + newVersion);
-        if(newVersion == 2) {
+        if(oldVersion < 2) {
             String sql = "ALTER TABLE TB_TEMP ADD COLUMN TEMP4 TEXT;";
             db.execSQL(sql);
-            Log.d("ysj", "onUpgrade complete");
+        }
+
+        if(oldVersion < 3) {
+            String sql = "ALTER TABLE TB_TEMP ADD COLUMN TEMP5 TEXT;";
+            db.execSQL(sql);
         }
     }
 }
