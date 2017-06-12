@@ -51,7 +51,8 @@ public class MainActivity extends AppCompatActivity {
     private int mFirstValue = 0;
     private int mSecondValue = 0;
 
-    private int mClickCnt = 0;
+    private int mFirstClickEvent = 0;   // 첫번째 클릭한 곳
+    private int mClickCnt = 0;           // 첫번째 클릭했는지 두번째 클릭했는지
 
     private InterstitialAd mInterstitialAd;
     AdView main_Banner_AdView;
@@ -100,6 +101,9 @@ public class MainActivity extends AppCompatActivity {
                 if(setNumber(1)) {
                     mTxtNumber1.setTextColor(Color.CYAN);
                 }
+                else {
+                    mTxtNumber1.setTextColor(Color.BLACK);
+                }
             }
         });
         mTxtNumber2.setOnClickListener(new View.OnClickListener() {
@@ -107,6 +111,9 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 if(setNumber(2)) {
                     mTxtNumber2.setTextColor(Color.CYAN);
+                }
+                else {
+                    mTxtNumber2.setTextColor(Color.BLACK);
                 }
             }
         });
@@ -116,6 +123,9 @@ public class MainActivity extends AppCompatActivity {
                 if(setNumber(3)) {
                     mTxtNumber3.setTextColor(Color.CYAN);
                 }
+                else {
+                    mTxtNumber3.setTextColor(Color.BLACK);
+                }
             }
         });
         mTxtNumber4.setOnClickListener(new View.OnClickListener() {
@@ -123,6 +133,9 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 if(setNumber(4)) {
                     mTxtNumber4.setTextColor(Color.CYAN);
+                }
+                else {
+                    mTxtNumber4.setTextColor(Color.BLACK);
                 }
             }
         });
@@ -132,6 +145,9 @@ public class MainActivity extends AppCompatActivity {
                 if(setNumber(5)) {
                     mTxtNumber5.setTextColor(Color.CYAN);
                 }
+                else {
+                    mTxtNumber5.setTextColor(Color.BLACK);
+                }
             }
         });
         mTxtNumber6.setOnClickListener(new View.OnClickListener() {
@@ -139,6 +155,9 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 if(setNumber(6)) {
                     mTxtNumber6.setTextColor(Color.CYAN);
+                }
+                else {
+                    mTxtNumber6.setTextColor(Color.BLACK);
                 }
             }
         });
@@ -148,6 +167,9 @@ public class MainActivity extends AppCompatActivity {
                 if(setNumber(7)) {
                     mTxtNumber7.setTextColor(Color.CYAN);
                 }
+                else {
+                    mTxtNumber7.setTextColor(Color.BLACK);
+                }
             }
         });
         mTxtNumber8.setOnClickListener(new View.OnClickListener() {
@@ -155,6 +177,9 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 if(setNumber(8)) {
                     mTxtNumber8.setTextColor(Color.CYAN);
+                }
+                else {
+                    mTxtNumber8.setTextColor(Color.BLACK);
                 }
             }
         });
@@ -164,6 +189,9 @@ public class MainActivity extends AppCompatActivity {
                 if(setNumber(9)) {
                     mTxtNumber9.setTextColor(Color.CYAN);
                 }
+                else {
+                    mTxtNumber9.setTextColor(Color.BLACK);
+                }
             }
         });
         mTxtNumber10.setOnClickListener(new View.OnClickListener() {
@@ -171,6 +199,9 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 if(setNumber(10)) {
                     mTxtNumber10.setTextColor(Color.CYAN);
+                }
+                else {
+                    mTxtNumber10.setTextColor(Color.BLACK);
                 }
             }
         });
@@ -215,7 +246,11 @@ public class MainActivity extends AppCompatActivity {
 
         Random random = new Random();
         int num1 = random.nextInt(10);
-        int num2 = random.nextInt(10);
+        int num2 = num1;
+        do {
+            num2 = random.nextInt(10);
+        }
+        while(num1 == num2);
 
         mTopValue = Integer.parseInt(mValues[num1]) * Integer.parseInt(mValues[num2]);
         mTxtTopNumber.setText("" + mTopValue);
@@ -225,6 +260,14 @@ public class MainActivity extends AppCompatActivity {
     private boolean setNumber(int eventBtn) {
         boolean result = false;
         String tempText = "";
+
+        if(mFirstClickEvent == eventBtn) {
+            // 같은 것을 클릭하면 다시 초기화
+            mClickCnt = 0;
+            mFirstValue = 0;
+            mFirstClickEvent = 0;
+            return false;
+        }
 
         if(eventBtn == 1) {
             tempText = mTxtNumber1.getText().toString();
@@ -259,6 +302,7 @@ public class MainActivity extends AppCompatActivity {
 
         if(mClickCnt == 0) {
             mFirstValue = Integer.parseInt(tempText) ;
+            mFirstClickEvent = eventBtn;
             result = true;
         }
         else if(mClickCnt == 1) {
@@ -281,35 +325,6 @@ public class MainActivity extends AppCompatActivity {
             Toast.makeText(MainActivity.this, "오답입니다.", Toast.LENGTH_SHORT).show();
             finish();
         }
-
-/*        String rightAnswer = "" + (mFirstValue * mSecondValue);
-
-        String wrongAnswer1 = "" + (Integer.parseInt(mTxtNumber3.getText().toString()) * Integer.parseInt(mTxtNumber2.getText().toString()));
-        String wrongAnswer2 = "" + (Integer.parseInt(mTxtNumber6.getText().toString()) * Integer.parseInt(mTxtNumber4.getText().toString()));
-        String wrongAnswer3 = "" + (Integer.parseInt(mTxtNumber9.getText().toString()) * Integer.parseInt(mTxtNumber8.getText().toString()));
-
-        List answer = new ArrayList<String>();
-        answer.add(rightAnswer);
-        answer.add(wrongAnswer1);
-        answer.add(wrongAnswer2);
-        answer.add(wrongAnswer3);
-
-        ArrayList answerRandom = new ArrayList<Integer>();
-
-        Random random = new Random();
-        int size = answer.size();
-        for(int i = 0; i < size; i++) {
-            int rv = random.nextInt(answer.size());
-            answerRandom.add(answer.get(rv));
-            answer.remove(rv);
-        }
-
-        mBtn1.setText((String)answerRandom.get(0));
-        mBtn2.setText((String)answerRandom.get(1));
-        mBtn3.setText((String)answerRandom.get(2));
-        mBtn4.setText((String)answerRandom.get(3));
-
-        mBtnLayout.setVisibility(View.VISIBLE);*/
     }
 
     private int getRandomValueInt(int min, int max) {
