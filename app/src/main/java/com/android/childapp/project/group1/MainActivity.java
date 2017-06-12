@@ -12,6 +12,10 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.childapp.R;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.InterstitialAd;
+import com.google.android.gms.ads.MobileAds;
 
 import org.w3c.dom.Text;
 
@@ -49,9 +53,6 @@ public class MainActivity extends AppCompatActivity {
 
     private int mClickCnt = 0;
 
-    private int mMinValue = 0;
-    private int mMaxValue = 0;
-
     private InterstitialAd mInterstitialAd;
     AdView main_Banner_AdView;
 
@@ -73,7 +74,7 @@ public class MainActivity extends AppCompatActivity {
         if (!mInterstitialAd.isLoading() && !mInterstitialAd.isLoaded()) {
             AdRequest adRequest = new AdRequest.Builder()
                     .addTestDevice(AdRequest.DEVICE_ID_EMULATOR)
-                    .addTestDevice("4B1E6F58F8A5EC1284F577F8C18FB3C4")
+                    .addTestDevice("C72B50E30C5D4B816557CD0049281869")
                     .build();
             mInterstitialAd.loadAd(adRequest);
         }
@@ -272,11 +273,8 @@ public class MainActivity extends AppCompatActivity {
     private void showBtn() {
         // TODO: 답을 저장하여 버튼을 보여줌
         if(mTopValue == mFirstValue * mSecondValue) {
-            Intent intent = new Intent();
-            intent.setClass(MainActivity.this, com.android.childapp.project.group1.ScoreActivity.class);
-            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-            startActivity(intent);
             Toast.makeText(MainActivity.this, "정답입니다.", Toast.LENGTH_SHORT).show();
+            showInterstitial();
             finish();
         }
         else {
@@ -312,22 +310,6 @@ public class MainActivity extends AppCompatActivity {
         mBtn4.setText((String)answerRandom.get(3));
 
         mBtnLayout.setVisibility(View.VISIBLE);*/
-    }
-
-    private void checkAnswer(int clickAnswer) {
-        if(clickAnswer == mFirstValue * mSecondValue) {
-//            Intent intent = new Intent();
-//            intent.setClass(MainActivity.this, com.android.childapp.project.group1.ScoreActivity.class);
-//            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-//            startActivity(intent);
-            Toast.makeText(MainActivity.this, "정답입니다.", Toast.LENGTH_SHORT).show();
-            showInterstitial();
-            finish();
-        }
-        else {
-            Toast.makeText(MainActivity.this, "틀렸습니다.", Toast.LENGTH_SHORT).show();
-            finish();
-        }
     }
 
     private int getRandomValueInt(int min, int max) {
