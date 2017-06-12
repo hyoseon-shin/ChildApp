@@ -9,6 +9,8 @@ import android.widget.Button;
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
 import java.util.List;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
 
 import com.android.childapp.R;
 
@@ -50,6 +52,14 @@ public class MainActivity extends AppCompatActivity {
                                      }
                                  }
         );
+
+
+        AdView mAdView = (AdView) findViewById(R.id.adView);
+        AdRequest adRequest = new AdRequest.Builder()
+                .addTestDevice(AdRequest.DEVICE_ID_EMULATOR)
+                .addTestDevice("4B1E6F58F8A5EC1284F577F8C18FB3C4")
+                .build();
+        mAdView.loadAd(adRequest);
     }
 
     public boolean getPackageList() {
