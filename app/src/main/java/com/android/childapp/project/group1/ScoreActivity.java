@@ -35,7 +35,7 @@ public class ScoreActivity extends AppCompatActivity implements View.OnClickList
         setContentView(R.layout.activity_project_group1_score);
 
         main_inter = new InterstitialAd(this);
-        main_inter.setAdUnitId("Admob - 전면광고 ID");
+        main_inter.setAdUnitId("ca-app-pub-5782667810750787/8232768353");
         adRequest1 = new AdRequest.Builder()
                 .addTestDevice(AdRequest.DEVICE_ID_EMULATOR)
                 .addTestDevice("기기 ID")
@@ -60,8 +60,8 @@ public class ScoreActivity extends AppCompatActivity implements View.OnClickList
         main_Banner_AdView.loadAd(adRequest1);
 
 
-        btn_test = (Button)findViewById(R.id.test);
-        btn_test.setOnClickListener(this);
+        //btn_test = (Button)findViewById(R.id.test);
+        //btn_test.setOnClickListener(this);
     }
     public boolean displayInterstitial() {
         main_inter.loadAd(adRequest);
