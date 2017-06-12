@@ -15,7 +15,7 @@
             android:layout_marginLeft="30dp"
             android:layout_marginTop="60dp"
             android:textSize="30sp"
-            android:textColor="#FF0000">
+            android:textColor="#000000">
         </TextView>
 
         <TextView
@@ -25,7 +25,7 @@
             android:layout_marginLeft="230dp"
             android:layout_marginTop="220dp"
             android:textSize="30sp"
-            android:textColor="#FF0000">
+            android:textColor="#000000">
         </TextView>
 
         <TextView
@@ -35,7 +35,7 @@
             android:layout_marginLeft="230dp"
             android:layout_marginTop="360dp"
             android:textSize="30sp"
-            android:textColor="#FF0000">
+            android:textColor="#000000">
         </TextView>
 
         <TextView
@@ -45,7 +45,7 @@
             android:layout_marginLeft="210dp"
             android:layout_marginTop="70dp"
             android:textSize="30sp"
-            android:textColor="#FF0000">
+            android:textColor="#000000">
         </TextView>
 
         <TextView
@@ -55,7 +55,7 @@
             android:layout_marginLeft="50dp"
             android:layout_marginTop="310dp"
             android:textSize="30sp"
-            android:textColor="#FF0000">
+            android:textColor="#000000">
         </TextView>
 
         <TextView
@@ -65,7 +65,7 @@
             android:layout_marginLeft="150dp"
             android:layout_marginTop="130dp"
             android:textSize="30sp"
-            android:textColor="#FF0000">
+            android:textColor="#000000">
         </TextView>
 
         <TextView
@@ -75,7 +75,7 @@
             android:layout_marginLeft="100dp"
             android:layout_marginTop="200dp"
             android:textSize="30sp"
-            android:textColor="#FF0000">
+            android:textColor="#000000">
         </TextView>
 
         <TextView
@@ -85,7 +85,7 @@
             android:layout_marginLeft="170dp"
             android:layout_marginTop="260dp"
             android:textSize="30sp"
-            android:textColor="#FF0000">
+            android:textColor="#000000">
         </TextView>
 
         <TextView
@@ -95,7 +95,7 @@
             android:layout_marginLeft="290dp"
             android:layout_marginTop="260dp"
             android:textSize="30sp"
-            android:textColor="#FF0000">
+            android:textColor="#000000">
         </TextView>
 
         <TextView
@@ -105,16 +105,18 @@
             android:layout_marginLeft="120dp"
             android:layout_marginTop="20dp"
             android:textSize="30sp"
-            android:textColor="#FF0000">
+            android:textColor="#000000">
         </TextView>
 
     </FrameLayout>
 
     <LinearLayout
+        android:id="@+id/project_group1_btnlayout"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:visibility="invisible">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -132,7 +134,6 @@
                 android:id="@+id/project_group1_btn1"
                 android:layout_width="100dp"
                 android:layout_height="50dp"
-                android:text="Button1"
                 />
             <View
                 android:layout_width="0dp"
@@ -144,7 +145,6 @@
                 android:id="@+id/project_group1_btn2"
                 android:layout_width="100dp"
                 android:layout_height="50dp"
-                android:text="Button2"
                 />
 
             <View
@@ -169,7 +169,6 @@
                 android:id="@+id/project_group1_btn3"
                 android:layout_width="100dp"
                 android:layout_height="50dp"
-                android:text="Button3"
                 />
             <View
                 android:layout_width="0dp"
@@ -181,7 +180,6 @@
                 android:id="@+id/project_group1_btn4"
                 android:layout_width="100dp"
                 android:layout_height="50dp"
-                android:text="Button4"
                 />
 
             <View
@@ -189,13 +187,6 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1">
             </View>
-
-            <Button
-                android:id="@+id/project_group1_btn5"
-                android:layout_width="100dp"
-                android:layout_height="50dp"
-                android:text="결과(임시)"
-                />
         </LinearLayout>
 
     </LinearLayout>
