@@ -49,6 +49,12 @@ public class MainActivity extends AppCompatActivity {
 
     private int mClickCnt = 0;
 
+    private int mMinValue = 0;
+    private int mMaxValue = 0;
+
+    private InterstitialAd mInterstitialAd;
+    AdView main_Banner_AdView;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -58,6 +64,19 @@ public class MainActivity extends AppCompatActivity {
         initPosition();
 
         setData();
+
+        MobileAds.initialize(this, "ca-app-pub-3940256099942544~3347511713");
+        mInterstitialAd = new InterstitialAd(this);
+        mInterstitialAd.setAdUnitId(getString(R.string.banner_ad_unit_id2));
+
+
+        if (!mInterstitialAd.isLoading() && !mInterstitialAd.isLoaded()) {
+            AdRequest adRequest = new AdRequest.Builder()
+                    .addTestDevice(AdRequest.DEVICE_ID_EMULATOR)
+                    .addTestDevice("4B1E6F58F8A5EC1284F577F8C18FB3C4")
+                    .build();
+            mInterstitialAd.loadAd(adRequest);
+        }
     }
 
     private void initResource() {
@@ -297,11 +316,12 @@ public class MainActivity extends AppCompatActivity {
 
     private void checkAnswer(int clickAnswer) {
         if(clickAnswer == mFirstValue * mSecondValue) {
-            Intent intent = new Intent();
-            intent.setClass(MainActivity.this, com.android.childapp.project.group1.ScoreActivity.class);
-            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-            startActivity(intent);
+//            Intent intent = new Intent();
+//            intent.setClass(MainActivity.this, com.android.childapp.project.group1.ScoreActivity.class);
+//            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+//            startActivity(intent);
             Toast.makeText(MainActivity.this, "정답입니다.", Toast.LENGTH_SHORT).show();
+            showInterstitial();
             finish();
         }
         else {
@@ -322,4 +342,15 @@ public class MainActivity extends AppCompatActivity {
         int result = random.nextInt(max-min) + min;
         return "" + result;
     }
+
+    private void showInterstitial() {
+        // Show the ad if it's ready. Otherwise toast and restart the game.
+        if (mInterstitialAd != null && mInterstitialAd.isLoaded()) {
+            mInterstitialAd.show();
+        } else {
+            Toast.makeText(this, "Ad did not load", Toast.LENGTH_SHORT).show();
+//            startGame();
+        }
+    }
+
 }

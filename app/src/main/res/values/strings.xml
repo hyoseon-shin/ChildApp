@@ -13,6 +13,8 @@
     <string name="sub_btn_7">이원석</string>
     <string name="sub_btn_8">전명희</string>
     <string name="sub_btn_9">정경미</string>
+    <string name="title_activity_stop_watch">StopWatchActivity</string>
     <string name="banner_ad_unit_id">ca-app-pub-5782667810750787/7035236756</string>
+    <string name="banner_ad_unit_id2">ca-app-pub-5782667810750787/8232768353</string>
 
 </resources>
