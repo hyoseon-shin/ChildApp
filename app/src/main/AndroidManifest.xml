@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.android.childapp">
-    <uses-permission android:name="android.permission.INTERNET"/>
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -16,31 +15,26 @@
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-        <meta-data android:name="com.google.android.gms.version"
-            android:value="@integer/google_play_services_version" />
-
-        <activity android:name=".project.group1.MainActivity"></activity>
-        <activity android:name=".project.group1.ScoreActivity"></activity>
-
-        <activity android:name=".project.group2.MainActivity"></activity>
-
-        <activity android:name=".practice.jkm.MainActivity"></activity>
-        <activity android:name=".practice.jmh.MainActivity"></activity>
-        <activity android:name=".practice.kte.MainActivity"></activity>
-        <activity android:name=".practice.lws.MainActivity"></activity>
-        <activity android:name=".practice.ocs.MainActivity"></activity>
-        <activity android:name=".practice.shs.MainActivity"></activity>
-        <activity android:name=".practice.wjj.MainActivity"></activity>
-        <activity android:name=".practice.ygy.MainActivity"></activity>
-        <activity android:name=".practice.ysj.MainActivity"></activity>
-
-        <activity android:name="com.google.android.gms.ads.AdActivity"
-            android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize"
-            android:theme="@android:style/Theme.Translucent" />
+        <activity android:name=".project.group1.MainActivity" />
+        <activity android:name=".project.group2.MainActivity" />
+        <activity android:name=".practice.jkm.MainActivity" />
+        <activity android:name=".practice.jmh.MainActivity" />
+        <activity android:name=".practice.kte.MainActivity" />
+        <activity android:name=".practice.lws.MainActivity" />
+        <activity android:name=".practice.ocs.MainActivity" />
+        <activity android:name=".practice.shs.MainActivity" />
+        <activity android:name=".practice.wjj.MainActivity" />
+        <activity android:name=".practice.ygy.MainActivity" />
+        <activity android:name=".practice.ysj.MainActivity" />
+        <activity
+            android:name=".practice.ygy.StopWatchActivity"
+            android:label="@string/title_activity_stop_watch"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".practice.ygy.GameStartActivity"></activity>
     </application>
 
 </manifest>
