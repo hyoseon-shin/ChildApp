@@ -20,6 +20,8 @@
         </activity>
 
         <activity android:name=".project.group1.MainActivity"></activity>
+        <activity android:name=".project.group1.ScoreActivity"></activity>
+
         <activity android:name=".project.group2.MainActivity"></activity>
 
         <activity android:name=".practice.jkm.MainActivity"></activity>
