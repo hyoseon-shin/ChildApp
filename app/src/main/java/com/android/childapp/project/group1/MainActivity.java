@@ -1,8 +1,13 @@
 package com.android.childapp.project.group1;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
+import android.os.SystemClock;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
@@ -29,6 +34,9 @@ import java.util.Random;
 
 public class MainActivity extends AppCompatActivity {
 
+    private TextView mTime;
+    private TextView mRightWrongCnt;
+
     private TextView mTxtTopNumber;
 
     private TextView mTxtNumber1;
@@ -44,8 +52,17 @@ public class MainActivity extends AppCompatActivity {
 
     private String[] mValues;
 
+    private int mLevel = 0;
     private int mMinValue = 0;
     private int mMaxValue = 0;
+
+    private int mRightCnt = 0;
+    private int mWrongCnt = 0;
+
+    private long mBaseTime = 0L;
+
+    private final int TOTAL_QUESTION_CNT = 10;
+    private int mCurrentQuestionCnt = 0;
 
     private int mTopValue = 0;
     private int mFirstValue = 0;
@@ -57,6 +74,23 @@ public class MainActivity extends AppCompatActivity {
     private InterstitialAd mInterstitialAd;
     AdView main_Banner_AdView;
 
+    Handler myTimer = new Handler(){
+        public void handleMessage(Message msg){
+            mTime.setText(getTimeOut());
+
+            //sendEmptyMessage 는 비어있는 메세지를 Handler 에게 전송하는겁니다.
+            myTimer.sendEmptyMessage(0);
+        }
+    };
+
+    String getTimeOut(){
+        long now = SystemClock.elapsedRealtime(); //애플리케이션이 실행되고나서 실제로 경과된 시간(??)^^;
+        long outTime = now - mBaseTime;
+        String easy_outTime = String.format("%02d:%02d:%02d", outTime/1000 / 60, (outTime/1000)%60,(outTime%1000)/10);
+        return easy_outTime;
+
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -64,8 +98,6 @@ public class MainActivity extends AppCompatActivity {
 
         initResource();
         initPosition();
-
-        setData();
 
         MobileAds.initialize(this, "ca-app-pub-3940256099942544~3347511713");
         mInterstitialAd = new InterstitialAd(this);
@@ -79,9 +111,58 @@ public class MainActivity extends AppCompatActivity {
                     .build();
             mInterstitialAd.loadAd(adRequest);
         }
+
+        showLevelDialog();
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        myTimer.removeMessages(0);
+    }
+
+    private void showLevelDialog(){
+
+        CharSequence[] items = {"초급", "중급", "고급", "전설"};
+
+        new AlertDialog.Builder(this)
+                .setTitle("난이도를 선택하세요.")
+                .setItems(items, new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int item) {
+
+                        if(item == 0) {     // 초급
+                            mLevel = 0;
+                            mMinValue = 2;
+                            mMaxValue = 9;
+                        }
+                        else if(item == 1){ // 중급
+                            mLevel = 1;
+                            mMinValue = 4;
+                            mMaxValue = 14;
+                        }
+                        else if(item == 2){ // 고급
+                            mLevel = 2;
+                            mMinValue = 7;
+                            mMaxValue = 25;
+                        }
+                        else if(item == 3){ // 전설
+                            mLevel = 3;
+                            mMinValue = 40;
+                            mMaxValue = 88;
+                        }
+                        setTopData();
+                        setData();
+                    }
+                })
+                .setCancelable(false)
+                .show();
     }
 
     private void initResource() {
+
+        mTime = (TextView) findViewById(R.id.project_group1_time);
+        mRightWrongCnt = (TextView) findViewById(R.id.project_group1_rightnum);
+
         mTxtTopNumber = (TextView) findViewById(R.id.project_group1_topnumber);
 
         mTxtNumber1 = (TextView) findViewById(R.id.project_group1_num1);
@@ -211,14 +292,11 @@ public class MainActivity extends AppCompatActivity {
         // TODO: 위치 랜덤
     }
 
-    private void setData() {
+    private void setTopData() {
+        mRightWrongCnt.setText("정답: " + mRightCnt + ", 오답: " + mWrongCnt);
+    }
 
-        //TODO: 난이도에 따라 min, max 세팅
-        // 초급 2~9
-        // 중급 8~19
-        // 고급 21~99
-        mMinValue = 2;
-        mMaxValue = 9;
+    private void setData() {
 
         mValues = null;
         mValues = new String[10];
@@ -232,6 +310,17 @@ public class MainActivity extends AppCompatActivity {
         mValues[7] = getRandomValue(mMinValue, mMaxValue);
         mValues[8] = getRandomValue(mMinValue, mMaxValue);
         mValues[9] = getRandomValue(mMinValue, mMaxValue);
+
+        mTxtNumber1.setTextColor(Color.BLACK);
+        mTxtNumber2.setTextColor(Color.BLACK);
+        mTxtNumber3.setTextColor(Color.BLACK);
+        mTxtNumber4.setTextColor(Color.BLACK);
+        mTxtNumber5.setTextColor(Color.BLACK);
+        mTxtNumber6.setTextColor(Color.BLACK);
+        mTxtNumber7.setTextColor(Color.BLACK);
+        mTxtNumber8.setTextColor(Color.BLACK);
+        mTxtNumber9.setTextColor(Color.BLACK);
+        mTxtNumber10.setTextColor(Color.BLACK);
 
         mTxtNumber1.setText(mValues[0]);
         mTxtNumber2.setText(mValues[1]);
@@ -254,6 +343,10 @@ public class MainActivity extends AppCompatActivity {
 
         mTopValue = Integer.parseInt(mValues[num1]) * Integer.parseInt(mValues[num2]);
         mTxtTopNumber.setText("" + mTopValue);
+
+        mBaseTime = SystemClock.elapsedRealtime();
+        myTimer.sendEmptyMessage(0);
+
 
     }
 
@@ -303,28 +396,53 @@ public class MainActivity extends AppCompatActivity {
         if(mClickCnt == 0) {
             mFirstValue = Integer.parseInt(tempText) ;
             mFirstClickEvent = eventBtn;
+            mClickCnt++;
             result = true;
         }
         else if(mClickCnt == 1) {
             mSecondValue = Integer.parseInt(tempText);
             showBtn();
-            result = true;
+            result = false;
         }
-        mClickCnt++;
+
         return  result;
     }
 
     private void showBtn() {
-        // TODO: 답을 저장하여 버튼을 보여줌
         if(mTopValue == mFirstValue * mSecondValue) {
-            Toast.makeText(MainActivity.this, "정답입니다.", Toast.LENGTH_SHORT).show();
-            showInterstitial();
-            finish();
+            mRightCnt++;
+            //showInterstitial();
+            //finish();
         }
         else {
-            Toast.makeText(MainActivity.this, "오답입니다.", Toast.LENGTH_SHORT).show();
-            finish();
+            mWrongCnt++;
+            //finish();
         }
+        mCurrentQuestionCnt++;
+
+        if(mCurrentQuestionCnt == TOTAL_QUESTION_CNT) {
+            myTimer.removeMessages(0);
+            String message = "소요시간: " + getTimeOut() + "\n정답: " + mRightCnt + "개" + "\n오답: " + mWrongCnt + "개";
+            new AlertDialog.Builder(this)
+                    .setTitle("당신의 성적입니다.")
+                    .setMessage(message)
+                    .setCancelable(false)
+                    .setPositiveButton("확인", new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int which) {
+                            showInterstitial();
+                            finish();
+                        }
+                    })
+                    .show();
+        }
+        else {
+            mClickCnt = 0;
+            mFirstValue = 0;
+            mFirstClickEvent = 0;
+            setTopData();
+            setData();
+        }
+
     }
 
     private int getRandomValueInt(int min, int max) {
@@ -336,7 +454,20 @@ public class MainActivity extends AppCompatActivity {
     private String getRandomValue(int min, int max) {
 
         Random random = new Random();
-        int result = random.nextInt(max-min) + min;
+        int result = 0;
+
+        if(mLevel == 3) {
+            do{
+                result = random.nextInt(max-min) + min;
+            }
+            while (result % 10 == 1 || result % 10 == 7 || result % 10 == 9);
+        }
+        else {
+            result = random.nextInt(max-min) + min;
+        }
+
+        int aaa = result % 10;
+
         return "" + result;
     }
 
