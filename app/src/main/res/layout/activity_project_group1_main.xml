@@ -3,6 +3,15 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <TextView
+        android:id="@+id/project_group1_topnumber"
+        android:layout_width="match_parent"
+        android:layout_height="120dp"
+        android:gravity="center"
+        android:textSize="50sp"
+        android:textColor="#F361A6"
+        >
+    </TextView>
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
@@ -110,84 +119,4 @@
 
     </FrameLayout>
 
-    <LinearLayout
-        android:id="@+id/project_group1_btnlayout"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:orientation="vertical"
-        android:visibility="invisible">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:orientation="horizontal">
-
-            <View
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1">
-            </View>
-
-            <Button
-                android:id="@+id/project_group1_btn1"
-                android:layout_width="100dp"
-                android:layout_height="50dp"
-                />
-            <View
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1">
-            </View>
-
-            <Button
-                android:id="@+id/project_group1_btn2"
-                android:layout_width="100dp"
-                android:layout_height="50dp"
-                />
-
-            <View
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1">
-            </View>
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:orientation="horizontal">
-            <View
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1">
-            </View>
-
-            <Button
-                android:id="@+id/project_group1_btn3"
-                android:layout_width="100dp"
-                android:layout_height="50dp"
-                />
-            <View
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1">
-            </View>
-
-            <Button
-                android:id="@+id/project_group1_btn4"
-                android:layout_width="100dp"
-                android:layout_height="50dp"
-                />
-
-            <View
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1">
-            </View>
-        </LinearLayout>
-
-    </LinearLayout>
 </LinearLayout>

@@ -29,9 +29,9 @@ public class MainActivity extends AppCompatActivity {
         View.OnClickListener stopWatchBtnListener = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, StopWatchActivity.class);
-                startActivity(intent);
-                finish();
+                //Intent intent = new Intent(MainActivity.this, StopWatchActivity.class);
+                //startActivity(intent);
+                //finish();
             }
         };
 
