@@ -34,7 +34,8 @@
             android:name=".practice.ygy.StopWatchActivity"
             android:label="@string/title_activity_stop_watch"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".practice.ygy.GameStartActivity"></activity>
+        <activity android:name=".practice.ygy.GameStartActivity" />
+        <activity android:name=".practice.ygy.GamePauseActivity"/>
     </application>
 
 </manifest>
