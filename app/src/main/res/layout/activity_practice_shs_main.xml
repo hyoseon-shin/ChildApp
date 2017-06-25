@@ -7,21 +7,88 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
-        <TextView
-            android:id="@+id/example"
+        <LinearLayout
+            android:id="@+id/problem_layout"
             android:gravity="center"
             android:layout_width="match_parent"
-            android:layout_height="200dp"
-            android:textColor="#000000"
-            android:textSize="150sp"
-            android:textStyle="bold"
-            android:fontFamily="Arial" />
+            android:layout_height="150dp"
+            android:orientation="horizontal">
+            <LinearLayout
+                android:id="@+id/problem_layout1"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:orientation="horizontal">
+            </LinearLayout>
+            <TextView
+                android:id="@+id/plus"
+                android:gravity="center"
+                android:includeFontPadding="false"
+                android:layout_width="50dp"
+                android:layout_height="150dp"
+                android:background="@android:color/transparent"
+                android:textColor="#000000"
+                android:textSize="60sp"
+                android:textStyle="bold"
+                android:fontFamily="Arial"
+                android:text="+"/>
+            <LinearLayout
+                android:id="@+id/problem_layout2"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:orientation="horizontal">
+            </LinearLayout>
+            <TextView
+                android:id="@+id/equal"
+                android:gravity="center"
+                android:includeFontPadding="false"
+                android:layout_width="100dp"
+                android:layout_height="150dp"
+                android:background="@android:color/transparent"
+                android:textColor="#000000"
+                android:textSize="60sp"
+                android:textStyle="bold"
+                android:fontFamily="Arial"
+                android:text="= ?"/>
+        </LinearLayout>
         <LinearLayout
-            android:id="@+id/image_layout"
             android:gravity="center"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical">
+            android:orientation="horizontal">
+            <RelativeLayout
+                android:id="@+id/example_layout1"
+                android:gravity="center"
+                android:layout_width="150dp"
+                android:layout_height="100dp"
+                android:orientation="horizontal">
+            </RelativeLayout>
+            <RelativeLayout
+                android:id="@+id/example_layout2"
+                android:gravity="center"
+                android:layout_width="150dp"
+                android:layout_height="100dp"
+                android:orientation="horizontal">
+            </RelativeLayout>
+        </LinearLayout>
+        <LinearLayout
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+            <RelativeLayout
+                android:id="@+id/example_layout3"
+                android:gravity="center"
+                android:layout_width="150dp"
+                android:layout_height="100dp"
+                android:orientation="horizontal">
+            </RelativeLayout>
+            <RelativeLayout
+                android:id="@+id/example_layout4"
+                android:gravity="center"
+                android:layout_width="150dp"
+                android:layout_height="100dp"
+                android:orientation="horizontal">
+            </RelativeLayout>
         </LinearLayout>
     </LinearLayout>
 </ScrollView>
